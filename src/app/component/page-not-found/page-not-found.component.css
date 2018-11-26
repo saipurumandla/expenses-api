@@ -1,7 +1,7 @@
 
 .img-div{
-
-    content: url('https://www.isorm.com/wp-content/uploads/2016/07/404.gif');
+    content: url('../../../assets/img/404-stone-age-man-large.gif');
+    width:40%;
 }
 .position{
     margin-left: auto;
@@ -13,10 +13,62 @@ img{
     margin-right: auto;
 }
 .left-val{
+    font-size: 20px;
     text-align: center;
 }
 @media only screen and (max-width: 768px){
-    .btn-warning{
-        margin-left: 35%;
+    .left-val{
+        font-size: 15px;
+        text-align: center;
+    }
+    .img-div{
+        width:100%;
     }
 }
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .left-val{
+        font-size: 30px;
+        text-align: center;
+    }
+    .img-div{
+        width:100%;
+    }
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .left-val{
+        font-size: 30px;
+        text-align: center;
+    }
+    .img-div{
+        width:100%;
+    }
+  }
+  /* 
+  Ipad Pro
+  */
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  {
+    .left-val{
+        font-size: 30px;
+        text-align: center;
+    }
+    .img-div{
+        width:100%;
+    }
+  }

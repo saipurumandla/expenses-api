@@ -44,7 +44,7 @@ export class CustomHttp extends Http {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     // console.log(currentUser);
     if (currentUser && currentUser.token) {
-      options.headers.append('Authorization', 'Bearer ' + currentUser.token);
+      options.headers.append('Authorization', currentUser.token);
     }
 
     return options;

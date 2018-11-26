@@ -3,6 +3,13 @@
     font-family: Sansation;
     src: url(assets/font/Sansation-Regular.ttf);
 }
+html {
+    height: 100%;
+}
 body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: Sansation !important;
 }

@@ -14,8 +14,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { LoginComponent } from './component/login/login.component';
 const appRoutes: Routes = [
-
+  {path: 'login', component: LoginComponent},
   {path: '404', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/404'}
   // {path:'**',component: PageNotFoundComponent};
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

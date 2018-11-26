@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { appConfig } from '../../app.config';
-import { GetauthService } from '../../service/getauth.service';
 declare var $: any;
 @Component({
   selector: 'app-page-not-found',
@@ -9,16 +8,11 @@ declare var $: any;
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor(
-    public authservice: GetauthService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-
   }
   goHome() {
-    this.authservice.getStatus().subscribe(res => {
-      console.log(res);
-  });
+    window.location.href =  '/';
   }
 }

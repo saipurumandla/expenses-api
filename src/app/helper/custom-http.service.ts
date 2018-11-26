@@ -5,6 +5,7 @@ import { GenricHelper as GenricHelper } from './GenericHelper';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { GetauthService } from '../service/getauth.service';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -62,7 +63,7 @@ export class CustomHttp extends Http {
         this.genericHelper.hideNetworkError();
       });
     }
-    return Observable.throw(error._body);
+    return throwError(error);
   }
 }
 

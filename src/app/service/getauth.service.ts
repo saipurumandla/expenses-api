@@ -6,11 +6,11 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GetauthService {
-  readonly path = '/auth';
+  readonly path = '/auth/';
   constructor(
     public http: Http
   ) { }
   getStatus() {
-    return this.http.get('status').pipe(map(res => res.json()));
+    return this.http.get(this.path + 'status').pipe(map(res => res.json()));
   }
 }

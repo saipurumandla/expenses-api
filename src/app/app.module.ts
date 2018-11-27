@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules} from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -14,9 +14,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
-import { LoginComponent } from './component/login/login.component';
 const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
   {path: '404', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/404'}
   // {path:'**',component: PageNotFoundComponent};
@@ -25,13 +24,12 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    LoginComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes,{ preloadingStrategy: PreloadAllModules }),
     NgbModule,
     FormsModule,
     HttpModule

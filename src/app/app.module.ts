@@ -14,9 +14,17 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { OfflineComponent } from './component/offline/offline.component';
+import { ServererrorComponent } from './component/servererror/servererror.component';
+
+
 const appRoutes: Routes = [
   {path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
   {path: '404', component: PageNotFoundComponent},
+  {path: '500', component: ServererrorComponent},
+  {path: 'offline', component: OfflineComponent},
   {path: '**', redirectTo: '/404'}
   // {path:'**',component: PageNotFoundComponent};
 ];
@@ -24,7 +32,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    OfflineComponent,
+    ServererrorComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +42,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes,{ preloadingStrategy: PreloadAllModules }),
     NgbModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     customHttpProvider,
